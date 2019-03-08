@@ -34,7 +34,7 @@ get '/scrape' do
                               :headers => { 'User-Agent' => user_agent, 'Accept-Encoding' => 'identity' },
                               :faraday_options => { :ssl => { :verify => false } },
                               :html_content_only => true)
-    erb :scrape
+    @page.to_json
   else
     redirect "/"
   end
